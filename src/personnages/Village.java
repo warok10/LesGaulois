@@ -27,7 +27,7 @@ public class Village {
 		public static void main(String[]args) {
 			Village village=new Village("Village des Irréductibles",30);
 			//Gaulois gaulois = village.trouverHabitant(30);
-			//On obtirnt cette erreur car la taille du tableau est inferieur a l'entier en parametre de trouverHabitant
+			//On obtient cette erreur car la taille du tableau est inferieur a l'entier en parametre de trouverHabitant
 			Gaulois chef = new Gaulois("Abraracourcix",6); 
 			chef.ajouterHabitant(chef); 
 			Gaulois Asterix=new Gaulois("Asterix",8); 
