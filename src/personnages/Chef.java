@@ -6,11 +6,10 @@ public class Chef {
 	private int effetPotion = 1;
 	private Village village;
 
-	public Chef(String nom, int force, int effetPotion, Village village) {
+	public Chef(String nom, int force, Village village) {
 		super();
 		this.nom = nom;
 		this.force = force;
-		this.effetPotion = effetPotion;
 		this.village = village;
 	}
 

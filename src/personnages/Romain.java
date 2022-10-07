@@ -18,7 +18,7 @@ public class Romain {
 	}
 
 	private String prendreParole() {
-		return "Le romain " + nom + " : ";
+		return "Le Romain " + nom + " : ";
 	}
 
 	public void recevoirCoup(int forceCoup) {
@@ -29,4 +29,10 @@ public class Romain {
 			parler("J'abandonne...");
 		}
 	}
+	public static void main(String[]agrs){
+		Romain romain=new Romain("romain",8);
+		romain.prendreParole();
+		romain.parler("Bonjour");
+		romain.recevoirCoup(2);
+}	
 }
