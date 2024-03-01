@@ -29,9 +29,7 @@ public class Village {
 			//Gaulois gaulois = village.trouverHabitant(30);
 			//On obtient cette erreur car la taille du tableau est inferieur a l'entier en parametre de trouverHabitant
 			Gaulois chef = new Gaulois("Abraracourcix",6); 
-			chef.ajouterHabitant(chef); 
-			Gaulois Asterix=new Gaulois("Asterix",8); 
-			Asterix.ajouterHabitant(Asterix); 
+			Gaulois Asterix=new Gaulois("Asterix",8);  
 			Gaulois gaulois = village.trouverHabitant(1); 
 			System.out.println(gaulois);
 		}
