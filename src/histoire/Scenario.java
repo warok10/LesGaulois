@@ -1,29 +1,69 @@
 package histoire;
-
 import personnages.Druide;
+import personnages.Equipement;
 import personnages.Gaulois;
 import personnages.Romain;
+import villagegaulois.Musee;
+
 
 public class Scenario {
 
 	public static void main(String[] args) {
-		Gaulois asterix = new Gaulois("Asterix", 8);
-		Romain minus = new Romain("Minus", 6);
-		Gaulois obelix = new Gaulois("Obï¿½lix", 6);
-		Druide panoramix = new Druide("Panoramix",5,10);
-		panoramix.prendreParole();
-		panoramix.parler("Je vais aller preparer une potion");
-		panoramix.parler();
-		panoramix.booster(obelix);
-		obelix.parler("par BÃ©lÃ©nos, ce n'est pas juste !");
-		asterix.prendreParole();
-		panoramix.booster(asterix);
+		Druide druide = new Druide("Panoramix", 5, 10);
+		druide.parler("Je vais aller préparer une petite potion...");
+		druide.preparerPotion();
+		Gaulois obelix = new Gaulois("Obélix", 25);
+		Gaulois asterix = new Gaulois("Astérix", 8);
+		druide.booster(obelix);
+		obelix.parler("Par Bélénos, ce n'est pas juste !");
+		druide.booster(asterix);
 		asterix.parler("Bonjour");
-		minus.parler("UN GAU... UN GAUGAU..." );
-		asterix.frapper(minus);
+		Romain minus = new Romain("Minus", 6);
+		Romain milexcus = new Romain("Milexcus", 8);
+		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.CASQUE);
+		milexcus.sEquiper(Equipement.CASQUE);
+		minus.parler("UN GAU... UN GAUGAU...");
+		do {
+			asterix.frapper(minus);
+		} while (minus.getForce() > 0);
+		milexcus.parler("UN GAU... UN GAUGAU...");
+		do {
+			asterix.frapper(milexcus);
+		} while (milexcus.getForce() > 0);
 		
+//		Partie a decommenter
 		
-		
+//		Musee musee = new Musee();
+//		asterix.faireUneDonnation(musee);
+
 	}
 
 }
+
+
+//public class Scenario {
+//
+//	public static void main(String[] args) {
+//		Gaulois asterix = new Gaulois("Asterix", 8);
+//		Romain minus = new Romain("Minus", 6);
+//		Gaulois obelix = new Gaulois("Obï¿½lix", 6);
+//		Druide panoramix = new Druide("Panoramix",5,10);
+//		panoramix.prendreParole();
+//		panoramix.parler("Je vais aller preparer une potion");
+//		panoramix.parler();
+//		panoramix.booster(obelix);
+//		obelix.parler("par Bé©lÃ©nos, ce n'est pas juste !");
+//		asterix.prendreParole();
+//		panoramix.booster(asterix);
+//		asterix.parler("Bonjour");
+//		minus.parler("UN GAU... UN GAUGAU..." );
+//		asterix.frapper(minus);
+//		
+//		
+//		
+//	}
+//
+//}
+
+
