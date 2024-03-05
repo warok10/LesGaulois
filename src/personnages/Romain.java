@@ -21,7 +21,7 @@ public class Romain {
 	}
 
 	public void parler(String texte) {
-		System.out.println(prendreParole() + "« " + texte + "»");
+		System.out.println(prendreParole() + "ï¿½ " + texte + "ï¿½");
 	}
 
 	private String prendreParole() {
@@ -31,7 +31,7 @@ public class Romain {
 	private void sEquiper(Equipement equipement) {
 		switch (nbEquipement) {
 		case 2:
-			System.out.println("Le soldat " + nom + " est bien protegé !");
+			System.out.println("Le soldat " + nom + " est bien protegï¿½ !");
 		case 1:
 			if (equipements[0] == equipement) {
 				System.out.println("Le soldat " + nom + " possede deja un " + equipement + " !");
@@ -54,12 +54,15 @@ public class Romain {
 		} else {
 			parler("J'abandonne...");
 		}
-		assert forceInitiale > force : "la force d'un Romain a diminué.";
+		assert forceInitiale > force : "la force d'un Romain a diminuï¿½.";
 	}
 
 	public static void main(String[] agrs) {
 		Romain romain = new Romain("romain", 8);
-		Romain minus = new Romain("minus", 6);
+		Romain minus = new Romain("minus", -6);
+		assert romain.getForce()>0;
+		assert (minus.getForce()>0);
+		
 		minus.getForce();
 		minus.sEquiper(Equipement.CASQUE);
 		minus.sEquiper(Equipement.CASQUE);
