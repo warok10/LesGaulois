@@ -30,36 +30,36 @@ public class Romain {
 	}
 
 	public void sEquiper(Equipement equipement) {
+		String texte = "le soldat ";
 		switch (nbEquipement) {
 		case 1:
-			System.out.println("Le soldat " + nom + " est bien protegé !");
+			System.out.println( texte + nom + " est bien protegé !");
 		case 2:
 			if (equipements[0] == equipement) {
-				System.out.println("Le soldat " + nom + " possede deja un " + equipement + " !");
+				System.out.println(texte + nom + " possede deja un " + equipement + " !");
 			}
 		default:
 			if (equipements[0] != equipement) {
-				System.out.println("Le soldat " + nom + " s'equipe avec un " + equipement + ".");
+				System.out.println(texte + nom + " s'equipe avec un " + equipement + ".");
 			}
 			nbEquipement++;
 		}
 
 	}
 
-	public int CalculResistanceEquipement(int forceCoup) {
+	public int calculResistanceEquipement(int forceCoup) {
 		String texte = "Ma force est de " + this.force + ", et la force du coup est de " + forceCoup;
 		int resistanceEquipement = 0;
-		if (!(nbEquipement == 0)) {
+		if ((nbEquipement != 0)) {
 		texte += "\nMais heureusement, grace à mon équipement sa force est diminué de ";
-		for (int i = 0; i < nbEquipement;) {
+		for (int i = 0; i < nbEquipement;i++) {
 		if ((equipements[i] != null &&
-		equipements[i].equals(Equipement.BOUCLIER)) == true) {
+		equipements[i].equals(Equipement.BOUCLIER))) {
 		resistanceEquipement += 8;
 		} else {
 		System.out.println("Equipement casque");
 		resistanceEquipement += 5;
 		}
-		i++;
 		}
 		texte = texte + resistanceEquipement + "!";
 		}
@@ -89,20 +89,17 @@ public class Romain {
 		// précondition
 		assert force > 0;
 		
-		forceCoup = CalculResistanceEquipement(forceCoup);
+		forceCoup = calculResistanceEquipement(forceCoup);
 		force -= forceCoup;
-		switch (force) {
-			case 0:
+		if (force==0)
 				parler("Aïe");
-			default:
-				equipementEjecte = ejecterEquipement();
-				parler("J'abandonne...");
-			break;
-			}
+		else 
+			equipementEjecte = ejecterEquipement();
+			parler("J'abandonne...");
 			// post condition la force a diminuée
-			//assert force < oldForce;
-			return equipementEjecte;
+						return equipementEjecte;
 			}
+			
 	public static void main(String[] agrs) {
 		Romain romain = new Romain("romain", 8);
 		Romain minus = new Romain("minus", 6);
